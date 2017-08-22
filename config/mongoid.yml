@@ -5,7 +5,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: online_judge_development
+      database: online_judge_test
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -132,6 +132,16 @@ development:
     # otherwise.(default: :info)
     # log_level: :info
 test:
+  clients:
+    default:
+      database: online_judge_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+production:
   clients:
     default:
       database: online_judge_test
